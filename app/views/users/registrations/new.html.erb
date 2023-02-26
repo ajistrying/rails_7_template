@@ -1,0 +1,35 @@
+<div class="flex flex-col justify-center mx-6 py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up for an account</h2>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-6"} ) do |f| %>
+        <div>
+          <div class="mt-1 field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input input-bordered input-secondary w-full" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "input input-bordered input-secondary w-full" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input input-bordered input-secondary w-full"  %>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary w-full">Sign Up</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
