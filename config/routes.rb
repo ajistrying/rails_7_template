@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks',
     confirmations: 'users/confirmations',
   }
+
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+  end
+
   get 'static/landing'
   get 'static/about'
   get 'static/contact'

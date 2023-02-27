@@ -3,8 +3,9 @@
   <%= render "layouts/head" %>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.map do |type, message| %>
+       <%= render "shared/flash", type: type, message: message %>
+    <% end %>
     <%= render "shared/navbar"%>
     <div class="h-screen">
      <%= yield %>
