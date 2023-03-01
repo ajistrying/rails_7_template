@@ -2,13 +2,13 @@
 <html>
   <%= render "layouts/head" %>
 
-  <body>
+  <body class="flex flex-col min-h-screen">
     <% flash.map do |type, message| %>
        <%= render "shared/flash", type: type, message: message %>
     <% end %>
     <%= render "shared/navbar"%>
-    <div class="h-screen">
-     <%= yield %>
+    <div class="flex-grow">
+      <%= yield %>
     </div>
     <%= render "shared/footer"%>
   </body>

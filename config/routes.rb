@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  ### USERS
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -12,10 +14,13 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
 
-  get 'static/landing'
-  get 'static/about'
-  get 'static/contact'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  ### STATIC
+  get '/about', to: 'static#about'
+  get '/pricing', to: 'static#pricing'
 
+  ### MISC
+  resources :webhooks, only: [:create]
+
+  ### ROOT
   root "static#landing"
 end

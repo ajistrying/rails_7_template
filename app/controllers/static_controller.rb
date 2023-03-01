@@ -7,6 +7,6 @@ class StaticController < ApplicationController
   def about
   end
 
-  def contact
+  def pricing
   end
 end

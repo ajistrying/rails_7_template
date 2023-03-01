@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .buy-button {
+    @apply btn  btn-primary w-full text-white;
+  }
+}
+
