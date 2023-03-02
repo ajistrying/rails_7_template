@@ -1,13 +1,13 @@
-<div class="bg-white py-8 sm:py-12">
+<div class="py-8 sm:py-12">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-4xl sm:text-center">
       <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Choose the right plan for&nbsp;you</p>
     </div>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
-    <div class="mt-20 flow-root">
+    <div class="mt-14 flow-root">
       <div class="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-y-0 lg:divide-x xl:-mx-4">
 
-        <%= render "static/shared/pricing_info",  title: "Basic", price: "$15", annual_option: "$12 per month if paid annually", subtext: "Everything necessary to get started."  do %>
+        <%= render "static/shared/pricing_info",  title: "Basic", price: "$0", annual_option: "It's free!", subtext: "Bare bones to get started."  do %>
           <% ["5 products", "Up to 1,000 subscribers", "Basic analytics", "48-hour support response time"].each do |benefit| %>
             <li class="flex gap-x-3">
               <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -18,7 +18,7 @@
           <% end %>
         <% end %>
 
-        <%= render "static/shared/pricing_info",  title: "Essential", price: "$30", annual_option: "$24 per month if paid annually", subtext: "Everything in Basic, plus essential tools for growing your business."  do %>
+        <%= render "static/shared/pricing_info",  title: "Essential", price: "$10", annual_option: "$7 per month if paid annually", subtext: "Everything in Basic, plus essential tools for growing your business."  do %>
           <% ["25 products", "Up to 10,000 subscribers", "Advanced analytics", "24-hour support response time"].each do |benefit| %>
             <li class="flex gap-x-3">
               <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -29,7 +29,7 @@
           <% end %>
         <% end %>
 
-         <%= render "static/shared/pricing_info",  title: "Growth", price: "$60", annual_option: "$48 per month if paid annually", subtext: "Everything in Essential, plus collaboration tools and deeper insights."  do %>
+         <%= render "static/shared/pricing_info",  title: "Growth", price: "$20", annual_option: "$15 per month if paid annually", subtext: "Everything in Essential, plus collaboration tools and deeper insights."  do %>
             <% ["Unlimited products", "Unlimited subscribers", "Advanced analytics", "1-hour, dedicated support response time", "Marketing automations"].each do |benefit| %>
               <li class="flex gap-x-3">
                 <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

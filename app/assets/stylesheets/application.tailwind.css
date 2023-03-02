@@ -4,7 +4,6 @@
 
 @layer components {
   .buy-button {
-    @apply btn  btn-primary w-full text-white;
+    @apply btn-primary  btn w-full text-white;
   }
 }
-

@@ -15,5 +15,9 @@
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+  },
+  "devDependencies": {
+    "prettier": "2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.3"
   }
 }
