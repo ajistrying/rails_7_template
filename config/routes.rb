@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
 
+  ### DASHBOARD
+  scope controller: :dashboard do
+    get '/dashboard', action: :index
+  end
+
   ### STATIC
   get '/about', to: 'static#about'
   get '/pricing', to: 'static#pricing'

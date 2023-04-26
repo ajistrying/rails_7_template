@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/jumph4x/canonical-rails.git
+  revision: 7d6d958a3b53c794ed2f7ecc04e3e7fe670bd86a
+  specs:
+    canonical-rails (0.2.14)
+      actionmailer (>= 4.1, <= 7.1)
+      activerecord (>= 4.1, <= 7.1)
+      railties (>= 4.1, <= 7.1)
+      sprockets-rails (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -68,6 +78,10 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    ahoy_matey (4.2.1)
+      activesupport (>= 5.2)
+      device_detector
+      safely_block (>= 0.2.1)
     awesome_print (1.9.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
@@ -97,6 +111,7 @@ GEM
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    device_detector (1.1.0)
     devise (4.9.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -108,6 +123,7 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    errbase (0.2.2)
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -119,12 +135,17 @@ GEM
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
+    faraday-http-cache (2.4.1)
+      faraday (>= 0.8)
     faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
@@ -148,6 +169,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
@@ -188,6 +211,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    pagy (6.0.3)
     pg (1.4.5)
     propshaft (0.6.4)
       actionpack (>= 7.0.0)
@@ -265,6 +289,8 @@ GEM
     rspec-support (3.12.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -272,6 +298,13 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    sprockets (4.2.0)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     table_print (1.5.7)
@@ -307,9 +340,11 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  ahoy_matey (~> 4.2)
   awesome_print
   bootsnap
   brakeman
+  canonical-rails!
   capybara
   capybara-screenshot
   cssbundling-rails
@@ -318,11 +353,15 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  faraday-http-cache
+  inline_svg
   jbuilder
   jsbundling-rails
   letter_opener
+  meta-tags (~> 2.18)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
+  pagy (~> 6.0)
   pg (~> 1.1)
   propshaft
   pry (~> 0.13.1)

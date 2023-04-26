@@ -1,7 +1,11 @@
 module.exports = {
-  plugins: [require("@tailwindcss/forms"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/forms"), 
+    require("daisyui"),
+    require('@tailwindcss/line-clamp'),
+  ],
   daisyui: {
-    themes: ["winter"],
+    themes: ["garden"],
   },
   content: [
     "./app/views/**/*.html.erb",

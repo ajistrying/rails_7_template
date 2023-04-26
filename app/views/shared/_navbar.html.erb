@@ -15,6 +15,11 @@
         <li>
           <%= link_to "Pricing", pricing_path %>
         </li>
+        <% if current_user %>
+          <li>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+        <% end %>
         <li>
           <%= link_to "Sign Up", new_user_registration_path %>
         </li>
@@ -39,7 +44,11 @@
     </ul>
   </div>
   <div class="navbar-end space-x-4">
-    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary"%>
-    <%= link_to "Login", new_user_session_path, class: "link link-hover"%>
+    <% if current_user %>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary"%>
+      <%= link_to "Login", new_user_session_path, class: "link link-hover"%>
+    <% end %>
   </div>
 </div>
