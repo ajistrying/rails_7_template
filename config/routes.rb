@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 
   ### DASHBOARD
   scope controller: :dashboard do
-    get '/dashboard', action: :index
+    get '/dashboard', action: :audiences, as: :audiences
+    get '/keyword-search', action: :keyword_search, as: :keyword_search
+    get '/discussions', action: :discussions, as: :discussions
+    get '/account', action: :account, as: :account
   end
 
   ### STATIC
