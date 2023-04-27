@@ -34,6 +34,7 @@ gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 
 # Third Party API
+gem "faraday"
 gem "faraday-http-cache"
 
 group :development, :test do

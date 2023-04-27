@@ -353,6 +353,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  faraday
   faraday-http-cache
   inline_svg
   jbuilder
