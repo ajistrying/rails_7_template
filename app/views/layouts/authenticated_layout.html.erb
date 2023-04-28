@@ -6,9 +6,10 @@
         <% flash.map do |type, message| %>
            <%= render "shared/flash", type: type, message: message %>
         <% end %>
-        <div>
+        <div data-controller="slideover">
           <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-          <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+          <div class="relative z-50 hidden" data-slideover-target="container" role="dialog" aria-modal="true">
+
             <!--
               Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
@@ -19,9 +20,19 @@
                 From: "opacity-100"
                 To: "opacity-0"
             -->
-            <div class="fixed inset-0 bg-gray-900/80"></div>
+            <div 
+            	class="fixed inset-0 bg-gray-900/80"
+				data-slideover-target="backdrop"
+				data-transition-enter="transition-opacity ease-linear duration-500"
+			    data-transition-enter-start="opacity-0"
+			    data-transition-enter-end="opacity-100"
+			    data-transition-leave="transition-opacity ease-linear duration-500"
+			    data-transition-leave-start="opacity-100"
+    			data-transition-leave-end="opacity-0"
+            ></div>
 
             <div class="fixed inset-0 flex">
+
               <!--
                 Off-canvas menu, show/hide based on off-canvas menu state.
 
@@ -32,7 +43,17 @@
                   From: "translate-x-0"
                   To: "-translate-x-full"
               -->
-              <div class="relative mr-16 flex w-full max-w-xs flex-1">
+            	<div
+			  		class="relative mr-16 flex w-full max-w-xs flex-1"
+			  		data-slideover-target="menu"
+					data-transition-enter="transition ease-in-out duration-500 transform"
+				    data-transition-enter-start="-translater-x-full"
+				    data-transition-enter-end="translate-x-0"
+				    data-transition-leave="transition ease-in-out duration-500 transform"
+				    data-transition-leave-start="translate-x-0"
+	    			data-transition-leave-end="-translate-x-full"
+			 	 >
+
                 <!--
                   Close button, show/hide based on off-canvas menu state.
 
@@ -43,7 +64,17 @@
                     From: "opacity-100"
                     To: "opacity-0"
                 -->
-                <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
+                <div 
+					class="absolute left-full top-0 flex w-16 justify-center pt-5"
+					data-slideover-target="closeButton"
+					data-transition-enter="ease-in-out duration-500"
+				    data-transition-enter-start="opacity-0"
+				    data-transition-enter-end="opacity-100"
+				    data-transition-leave="ease-in-out duration-500"
+				    data-transition-leave-start="opacity-100"
+	    			data-transition-leave-end="opacity-0"
+					data-action="click->slideover#hide"
+				>
                   <button type="button" class="-m-2.5 p-2.5">
                     <span class="sr-only">Close sidebar</span>
                     <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -126,7 +157,7 @@
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-primary px-6">
               <div class="flex h-16 shrink-0 items-center">
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="Your Company">
+                <h1 class="text-2xl font-bold text-primary-content">TrendSearch</h1>
               </div>
               <nav class="flex flex-1 flex-col">
                 <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -166,7 +197,21 @@
 
           <main class="py-10 lg:pl-72">
             <div class="px-4 sm:px-6 lg:px-8">
-              <%= yield %>
+				<div class="flex items-center lg:items-start justify-between">
+					<%= yield :title%>
+					<div 
+						class="inline-block lg:hidden" 
+						data-slideover-target="menuIcon"
+						data-action="click->slideover#show"
+					>
+						<button class="btn btn-square btn-outline">
+							<%= hamburger_icon(options: "h-6 w-6")%>
+						</button>
+					</div>
+				</div>
+				<div class="py-6">
+					<%= yield %>
+				</div>
             </div>
           </main>
         </div>

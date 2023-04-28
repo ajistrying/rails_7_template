@@ -8,6 +8,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.51.1",
+    "el-transition": "^0.0.7",
     "esbuild": "^0.17.10",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
