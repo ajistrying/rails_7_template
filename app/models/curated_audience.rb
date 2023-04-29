@@ -1,0 +1,3 @@
+class CuratedAudience < ApplicationRecord
+    
+end

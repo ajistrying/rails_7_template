@@ -13,12 +13,14 @@ class RedditApiService
         end
 
         def search_subreddit(subreddit, query)
-            make_api_call do |conn|
-                response = conn.post("/search") do |req|
-                    req.body = {name: subreddit, query: query}.to_json
+            Rails.cache.fetch("subreddit_search_#{subreddit}_#{query}", expires_in: 5.minutes) do
+                make_api_call do |conn|
+                    response = conn.post("/search") do |req|
+                        req.body = {name: subreddit, query: query}.to_json
+                    end
+                    data = JSON.parse(response.body)
+                    data
                 end
-                data = JSON.parse(response.body)
-                puts data
             end
         end
 
@@ -27,6 +29,16 @@ class RedditApiService
                 response = conn.get("/trending")
                 data = JSON.parse(response.body)
                 puts data
+            end
+        end
+
+        def get_subreddit_info(subreddit)
+            Rails.cache.fetch("subreddit_info_#{subreddit}", expires_in: 10.minutes) do
+                make_api_call do |conn|
+                    response = conn.get("/subreddit", {name: subreddit})
+                    data = JSON.parse(response.body)
+                    data
+                end
             end
         end
 

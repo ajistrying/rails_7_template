@@ -18,5 +18,7 @@ module TrendSearch
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/0" }
   end
 end

@@ -4,7 +4,9 @@
     <%= render "layouts/head" %>
     <body>
         <% flash.map do |type, message| %>
-           <%= render "shared/flash", type: type, message: message %>
+          <%unless message == 'true' %>
+            <%= render "shared/flash", type: type, message: message %>
+          <% end %>
         <% end %>
         <div data-controller="slideover">
           <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
