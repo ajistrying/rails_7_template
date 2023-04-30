@@ -7,12 +7,14 @@ class DashboardController < ApplicationController
         case params[:audience_type]
         when "curated"
             @audience_type = "curated"
+            @curated_audiences = CuratedAudience.all
         when "custom"
             @audience_type = "custom"
         when "trending"
             @audience_type = "trending"
         else
             @audience_type = "curated"
+            @curated_audiences = CuratedAudience.all
         end
     end
 
