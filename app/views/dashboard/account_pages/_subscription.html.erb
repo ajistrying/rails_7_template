@@ -1,0 +1,38 @@
+<div class="mt-6">
+  <dl class="divide-y divide-primary">
+
+	<%# EMAIL %>
+    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900">Email</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow"><%= current_user.email %></span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="btn btn-primary btn-sm">Update</button>
+        </span>
+      </dd>
+    </div>
+
+	<%#  SUBSCRIPTION %>
+    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900">Current Subscription Tier</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow">Basic</span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="btn btn-primary btn-sm">Update</button>
+        </span>
+      </dd>
+    </div>
+
+	<%#  DAY PASS %>
+    <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+      <dt class="text-sm font-medium leading-6 text-gray-900">Day Passes</dt>
+      <dd class="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+        <span class="flex-grow">0</span>
+        <span class="ml-4 flex-shrink-0">
+          <button type="button" class="btn btn-primary btn-sm">Update</button>
+        </span>
+      </dd>
+    </div>
+
+  </dl>
+</div>

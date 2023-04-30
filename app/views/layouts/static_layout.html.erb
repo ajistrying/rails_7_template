@@ -5,7 +5,9 @@
 
   <body class="flex flex-col min-h-screen">
     <% flash.map do |type, message| %>
-       <%= render "shared/flash", type: type, message: message %>
+    	<% unless message == 'true' %>
+        	<%= render "shared/flash", type: type, message: message %>
+		<% end %>
     <% end %>
     <%= render "shared/navbar"%>
     <div class="flex-grow">

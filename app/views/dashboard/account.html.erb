@@ -1,5 +1,17 @@
 <% content_for :title do %>
 	<div>
 	    <h1 class="text-3xl">Account</h1>
+		<div class="tabs mt-2">
+			<%= link_to "Subscription", account_path(page: "subscription"), class: "tab tab-bordered text-lg #{@page == "subscription" ? "tab-active" : ""}"%>
+			<%= link_to "Notifications", account_path(page: "notifications"), class: "tab tab-bordered text-lg #{@page == "notifications" ? "tab-active" : ""}"%>
+		</div>
 	</div>
+<% end %>
+
+<% if @page == "subscription" %>
+	<%= render "dashboard/account_pages/subscription" %>
+<% end %>
+
+<% if @page == "notifications" %>
+	<%= render "dashboard/account_pages/notifications" %>
 <% end %>

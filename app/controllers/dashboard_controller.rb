@@ -23,6 +23,14 @@ class DashboardController < ApplicationController
     end
 
     def account
+        case params[:page]
+        when "subscription"
+            @page = "subscription"
+        when "notifications"
+            @page = "notifications"
+        else
+            @page = "subscription"
+        end
     end
 
     private
