@@ -1,5 +1,51 @@
 <ul role="list" class="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
-	
+
+	<% audiences.each do | audience |%>
+		<li class="overflow-hidden rounded-xl border border-gray-200 hover:border-gray-600">
+			<div class="flex items-center gap-x-4 border-b border-gray-900/5 bg-white p-4 justify-between">
+				<div class="flex items-center gap-x-4">
+					<div class="flex -space-x-6 overflow-hidden">
+						<% audience.subreddit_icons.first(5).each do |icon| %>
+							<% if icon.blank? %>
+								<img class="inline-block h-12 w-12 rounded-md  bg-gray-400" src="https://styles.redditmedia.com/t5_2qyuj/styles/communityIcon_c2k6ijob4f831.png?width=256&v=enabled&s=8037017c5a3a8cc4eabd90e9aa4c4b19e213d7a2" alt=""/>
+							<% else %>
+								<img class="inline-block h-12 w-12 rounded-md bg-gray-400" src=<%= icon %> alt=""/>
+							<% end %>
+						<% end %>
+					</div>
+					<div class="text-sm font-medium leading-6 text-gray-900">
+						<%= audience.name %>
+					</div>
+				</div>
+				<div class="text-gray-400 hover:text-gray-800 hover:cursor-pointer dropdown dropdown-left">
+					<span tabindex="0">
+						<%= ellipsis_horizontal_icon(options: "w-6 h-6")%>
+					</span>
+					<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-28">
+					    <li><a>View</a></li>
+					</ul>
+				</div>
+			</div>
+			<dl class="divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white">
+				<div class="flex justify-between gap-x-4 py-2">
+				  <dt class="text-gray-500">Subreddits</dt>
+				  <dd class="font-medium text-gray-900">
+					<%= audience.subreddit_names.count %>
+				  </dd>
+				</div>
+				<div class="flex justify-between gap-x-4 py-2">
+				  <dt class="text-gray-500">Total Subscribers</dt>
+				  <dd class="flex items-start gap-x-2">
+				    <div class="font-medium text-gray-900">
+						<%= number_to_human(audience.subscriber_count) %>
+					</div>
+				  </dd>
+				</div>
+
+			</dl>
+		</li>
+	<% end %>
+
 	<button type="button" class="group relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-gray-400 items-center text-center hover:border-gray-400 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
 		<%= user_group(options: "h-10 w-10 group-hover:text-gray-400 mx-auto") %>
 		<span class="mt-2 block text-sm font-semibold group-hover:text-gray-400">Create a new audience</span>

@@ -10,13 +10,14 @@
 <% end %>
 
 <%- if @audience_type == "curated" && @curated_audiences.present? %>
-	<h1 class="text-lg w-11/12 mb-4">Audiences created by TrendSearch to give you some potential starting points for your research!</h1>
+	<h1 class="text-lg w-11/12">Audiences created by TrendSearch to give you some potential starting points for your research!</h1>
+	<p class="text-md w-11/12 mb-4 text-gray-600">Click the ellipses icon to copy this curated audience into your collection of custom audiences.</p>
 	<%= render "dashboard/audiences/curated", audiences: @curated_audiences %>
 <% end %>
 
 <%- if @audience_type == "custom" %>
 	<h1 class="text-lg w-11/12 mb-4">Audiences created by you. You can create an entirely new audience, or use one of our curated audiences as a starting point!</h1>
-	<%= render "dashboard/audiences/custom"%>
+	<%= render "dashboard/audiences/custom", audiences: @custom_audiences %>
 <% end %>
 
 <%- if @audience_type == "trending" %>

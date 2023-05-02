@@ -1,6 +1,6 @@
 <ul role="list" class="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
 	<% audiences.each do | audience |%>
-		<li class="overflow-hidden rounded-xl border border-gray-200 hover:cursor-pointer hover:border-gray-600">
+		<li class="overflow-hidden rounded-xl border border-gray-200 hover:border-gray-600">
 			<div class="flex items-center gap-x-4 border-b border-gray-900/5 bg-white p-4 justify-between">
 				<div class="flex items-center gap-x-4">
 					<div class="flex -space-x-6 overflow-hidden">
@@ -16,8 +16,14 @@
 						<%= audience.name %>
 					</div>
 				</div>
-				<div class="text-gray-400 hover:text-gray-800">
-					<%= ellipsis_horizontal_icon(options: "w-6 h-6")%>
+				<div class="text-gray-400 hover:text-gray-800 hover:cursor-pointer dropdown dropdown-left">
+					<span tabindex="0">
+						<%= ellipsis_horizontal_icon(options: "w-6 h-6")%>
+					</span>
+					<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-28">
+						<li><%= button_to "Copy", copy_audience_path(audience_name: audience.name)%></li>
+					    <li><a>View</a></li>
+					</ul>
 				</div>
 			</div>
 			<dl class="divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white">
@@ -39,5 +45,4 @@
 			</dl>
 		</li>
 	<% end %>
-	
 </ul>
